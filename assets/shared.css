@@ -1,0 +1,329 @@
+/* ── SHARED STYLES — used across all pages ─────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --ink-mid:   #3d3d3d;
+  --ink-soft:  #6b6b6b;
+  --gold:      #c9893a;
+  --gold-lt:   #e8a84e;
+  --gold-pale: #fdf3e7;
+  --sage:      #4a5e4a;
+  --sage-lt:   #e8ede8;
+  --cream:     #faf8f4;
+  --white:     #ffffff;
+  --rule:      rgba(0,0,0,0.1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ── MOCKUP BANNER ─────────────────────────────── */
+.mockup-banner {
+  background: #f59e0b; color: #1a1a1a;
+  text-align: center; padding: 9px 20px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.02em;
+  position: sticky; top: 0; z-index: 9999;
+}
+
+/* ── NAV ────────────────────────────────────────── */
+nav {
+  background: #111;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 52px; height: 72px;
+  position: sticky; top: 36px; z-index: 100;
+}
+.nav-logo img { height: 46px; }
+.nav-links {
+  display: flex; align-items: center;
+  gap: 32px; list-style: none;
+}
+.nav-links > li { position: relative; }
+.nav-links a {
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  letter-spacing: 0.01em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+/* Dropdown */
+.dropdown {
+  display: none;
+  position: absolute; top: 100%; left: 0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: 3px solid var(--gold);
+  min-width: 180px; list-style: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 200;
+}
+.has-dropdown:hover .dropdown { display: block; }
+.dropdown li a {
+  display: block; padding: 10px 16px;
+  font-size: 13px; color: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.15s, color 0.15s;
+}
+.dropdown li:last-child a { border-bottom: none; }
+.dropdown li a:hover { background: rgba(201,168,76,0.12); color: var(--gold); }
+.nav-phone {
+  font-size: 15px; font-weight: 600;
+  color: var(--gold); text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px; transition: color 0.2s;
+}
+.nav-phone:hover { color: rgba(201,168,76,0.75); }
+
+/* ── PAGE HERO (sub-pages) ──────────────────────── */
+.page-hero {
+  background: #2a2218;
+  padding: 80px 52px 72px;
+  position: relative; overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.42;
+}
+/* Warm gradient overlay so image reads but text stays legible */
+.page-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(26,18,10,0.55) 0%, rgba(42,34,24,0.25) 100%);
+  pointer-events: none;
+}
+.page-hero-content { position: relative; max-width: 760px; }
+.page-breadcrumb {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px; letter-spacing: 0.04em;
+}
+.page-breadcrumb a { color: var(--gold-lt); text-decoration: none; }
+.page-breadcrumb a:hover { text-decoration: underline; }
+.page-kicker {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--white); margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 17px; font-weight: 300;
+  color: rgba(255,255,255,0.72); line-height: 1.7;
+  max-width: 580px;
+}
+
+/* ── COMMON SECTION STYLES ──────────────────────── */
+.section-kicker {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; line-height: 1.12;
+  color: var(--ink); margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 15px; font-weight: 300;
+  color: var(--ink-soft); line-height: 1.7;
+  max-width: 560px;
+}
+.rule { height: 1px; background: var(--rule); margin: 0; }
+
+/* ── LISTING CARD ───────────────────────────────── */
+.listing-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px; overflow: hidden;
+  background: var(--white);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.listing-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+.listing-img {
+  height: 190px; background: var(--sage-lt);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600;
+  color: var(--ink-soft); text-align: center; padding: 16px;
+}
+.listing-body { padding: 22px; }
+.listing-status {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 2px; margin-bottom: 10px;
+}
+.status-sale { background: #e8f5e9; color: #2e7d32; }
+.status-lease { background: #e3f2fd; color: #1565c0; }
+.listing-name {
+  font-family: 'Fraunces', serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--ink); margin-bottom: 4px;
+}
+.listing-addr { font-size: 13px; color: var(--ink-soft); margin-bottom: 12px; }
+.listing-price { font-size: 20px; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
+.listing-meta {
+  display: flex; gap: 16px; font-size: 12px;
+  color: var(--ink-soft); padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── BUTTONS ────────────────────────────────────── */
+.btn-primary {
+  background: var(--gold); color: var(--white);
+  padding: 14px 30px; border-radius: 2px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--ink);
+  padding: 13px 28px; border-radius: 2px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.03em;
+  border: 1.5px solid var(--ink);
+  display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── CTA STRIP ──────────────────────────────────── */
+.cta-strip {
+  background: var(--ink); padding: 72px 52px;
+  text-align: center;
+}
+.cta-strip h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700; color: var(--white);
+  margin-bottom: 14px;
+}
+.cta-strip p {
+  font-size: 16px; font-weight: 300;
+  color: rgba(255,255,255,0.6); margin-bottom: 32px;
+  max-width: 520px; margin-left: auto; margin-right: auto;
+  line-height: 1.7;
+}
+.cta-strip .btn-row { display: flex; gap: 14px; justify-content: center; }
+.btn-white {
+  background: var(--white); color: var(--ink);
+  padding: 14px 30px; border-radius: 2px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.03em;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-white:hover { background: var(--gold-pale); }
+.btn-ghost {
+  background: transparent; color: var(--white);
+  padding: 13px 28px; border-radius: 2px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.03em;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  display: inline-block;
+  transition: border-color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold-lt); }
+
+/* ── FOOTER ────────────────────────────────────── */
+footer {
+  background: #111; color: rgba(255,255,255,0.4);
+  padding: 40px 52px;
+  display: flex; justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer img { height: 36px; opacity: 0.7; }
+.footer-copy { font-size: 12px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  font-size: 12px; color: rgba(255,255,255,0.35);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media (max-width: 960px) {
+  nav { padding: 0 20px; }
+  .page-hero { padding: 56px 20px 48px; }
+  .cta-strip { padding: 48px 20px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+}
+
+/* ── MOBILE (max 768px) ───────────────────── */
+@media (max-width: 768px) {
+  /* Nav: hide links, show hamburger-style stacked layout */
+  nav {
+    padding: 0 16px;
+    height: 60px;
+    flex-wrap: wrap;
+  }
+  .nav-logo img { height: 36px; }
+  .nav-links {
+    display: none; /* Hidden on mobile — WordPress will use a proper mobile menu */
+  }
+  .nav-phone {
+    font-size: 13px;
+  }
+
+  /* Page hero */
+  .page-hero { padding: 44px 16px 36px; }
+  .page-hero h1 { font-size: clamp(24px, 6vw, 36px); }
+  .page-hero p { font-size: 15px; }
+
+  /* Section spacing */
+  .section-title { font-size: clamp(22px, 5vw, 32px); }
+
+  /* CTA strip */
+  .cta-strip { padding: 40px 16px; }
+  .cta-strip .btn-row { flex-direction: column; align-items: center; }
+
+  /* Listing cards — single column */
+  .listing-grid,
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 24px 16px;
+  }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+}
+
+/* ── SMALL MOBILE (max 480px) ──────────────── */
+@media (max-width: 480px) {
+  .page-hero { padding: 36px 14px 28px; }
+  .cta-strip { padding: 32px 14px; }
+  .btn-primary, .btn-white, .btn-ghost, .btn-outline {
+    padding: 13px 20px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .listing-body { padding: 16px; }
+  .listing-name { font-size: 15px; }
+  .listing-price { font-size: 17px; }
+}

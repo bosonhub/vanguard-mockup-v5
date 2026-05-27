@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO: Optimized title tag — primary keyword leads, brand name trails -->
+  <title>Commercial Real Estate Corvallis, OR | Vanguard Realty Group</title>
+
+  <!-- SEO: Meta description — keyword-rich, under 160 characters, action-oriented -->
+  <meta name="description" content="Buy, sell, or lease commercial real estate in Corvallis and the Willamette Valley. Vanguard Realty Group — local experts in office, industrial, retail, and residential." />
+
+  <!-- SEO: Canonical URL — tells Google the authoritative address for this page -->
+  <link rel="canonical" href="https://bosonhub.github.io/vanguard-mockup-v4/" />
+
+  <!-- SEO: Open Graph tags — controls how the page appears when shared on social media and in Google previews -->
+  <meta property="og:title" content="Commercial Real Estate Corvallis, OR | Vanguard Realty Group" />
+  <meta property="og:description" content="Local experts in commercial and residential real estate across Corvallis, Albany, and the Willamette Valley." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bosonhub.github.io/vanguard-mockup-v4/" />
+  <meta property="og:image" content="https://bosonhub.github.io/vanguard-mockup-v4/assets/images/hero_main.jpg" />
+
+  <!-- SEO: LocalBusiness + RealEstateAgent schema — tells Google exactly who Vanguard is, where they are, and what they do -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "name": "Vanguard Realty Group",
+    "image": "https://bosonhub.github.io/vanguard-mockup-v4/assets/logo.png",
+    "url": "https://bosonhub.github.io/vanguard-mockup-v4/",
+    "telephone": "+1-541-979-9929",
+    "email": "info@vanguardproperties.net",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Corvallis",
+      "addressRegion": "OR",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.5646,
+      "longitude": -123.2620
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Corvallis"},
+      {"@type": "City", "name": "Albany"},
+      {"@type": "AdministrativeArea", "name": "Willamette Valley"}
+    ],
+    "description": "Vanguard Realty Group is a full-service real estate brokerage in Corvallis, Oregon, specializing in commercial and residential properties across the Willamette Valley.",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00"}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a1a;
+      --ink-mid:   #3d3d3d;
+      --ink-soft:  #6b6b6b;
+      --gold:      #c9893a;
+      --gold-lt:   #e8a84e;
+      --gold-pale: #fdf3e7;
+      --sage:      #4a5e4a;
+      --sage-lt:   #e8ede8;
+      --cream:     #faf8f4;
+      --white:     #ffffff;
+      --rule:      rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── MOCKUP BANNER ─────────────────────────────── */
+    .mockup-banner {
+      background: #f59e0b; color: #1a1a1a;
+      text-align: center; padding: 9px 20px;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.02em;
+      position: sticky; top: 0; z-index: 9999;
+    }
+
+    /* ── NAV — clean, editorial ────────────────────── */
+    nav {
+      background: #111;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 52px; height: 72px;
+      position: sticky; top: 36px; z-index: 100;
+    }
+    .nav-logo img { height: 46px; }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .has-dropdown { position: relative; }
+    .dropdown {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);
+      border-top: 3px solid var(--gold); min-width: 180px;
+      list-style: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 200;
+    }
+    .has-dropdown:hover .dropdown { display: block; }
+    .dropdown li a {
+      display: block; padding: 10px 16px; font-size: 13px;
+      color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.15s, color 0.15s;
+    }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown li a:hover { background: rgba(201,168,76,0.12); color: var(--gold); }
+    .nav-phone {
+      font-size: 15px; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .nav-phone:hover { color: rgba(201,168,76,0.75); }
+
+    /* ── HERO — full-bleed editorial magazine ──────── */
+    .hero {
+      position: relative;
+      height: 92vh; min-height: 640px;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    /* Fallback for mobile where autoplay is blocked */
+    .hero-video-fallback {
+      position: absolute; inset: 0;
+      background-image: url('assets/images/hero_main.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      display: none;
+    }
+    /* Subtle bottom fade only — let the image breathe */
+    .hero-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        transparent 40%,
+        rgba(250,248,244,0.6) 75%,
+        var(--cream) 100%
+      );
+    }
+    /* White card overlay — editorial style, not a full dark overlay */
+    .hero-card {
+      position: absolute;
+      bottom: 80px; left: 52px;
+      max-width: 560px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(2px);
+      padding: 44px 48px;
+      border-left: 5px solid var(--gold);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.14);
+    }
+    .hero-kicker {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .hero-headline {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 700; line-height: 1.08;
+      color: var(--ink); margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 16px; font-weight: 300;
+      color: var(--ink-mid); line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-actions { display: flex; gap: 14px; align-items: center; }
+    .btn-primary {
+      background: var(--gold); color: var(--white);
+      padding: 14px 30px; border-radius: 2px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-text {
+      font-size: 14px; font-weight: 600;
+      color: var(--ink); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-text:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── INTRO STRIP — personality statement ──────── */
+    .intro-strip {
+      background: var(--ink);
+      padding: 52px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 48px;
+    }
+    .intro-quote {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 300; font-style: italic;
+      color: var(--white); line-height: 1.45;
+      max-width: 680px;
+    }
+    .intro-quote strong {
+      font-weight: 700; font-style: normal;
+      color: var(--gold-lt);
+    }
+    .intro-cta {
+      flex-shrink: 0;
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 14px 28px; border-radius: 2px;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .intro-cta:hover { border-color: var(--gold-lt); background: rgba(201,138,58,0.12); }
+
+    /* ── TWO-PATH — large editorial panels ─────────── */
+    .two-path {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .path-panel {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      text-decoration: none; padding: 52px;
+      min-height: 520px;
+    }
+    .path-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .path-panel:hover .path-bg { transform: scale(1.04); }
+    .path-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top,
+        rgba(10,10,10,0.82) 0%,
+        rgba(10,10,10,0.35) 55%,
+        rgba(10,10,10,0.08) 100%
+      );
+      transition: background 0.3s;
+    }
+    .path-panel:hover .path-overlay {
+      background: linear-gradient(to top,
+        rgba(10,10,10,0.88) 0%,
+        rgba(10,10,10,0.45) 55%,
+        rgba(10,10,10,0.12) 100%
+      );
+    }
+    .path-content { position: relative; color: var(--white); }
+    .path-tag {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-lt); margin-bottom: 10px;
+    }
+    .path-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700; line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .path-desc {
+      font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65; margin-bottom: 28px;
+      max-width: 360px;
+    }
+    .path-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600;
+      color: var(--white); text-decoration: none;
+      border-bottom: 1.5px solid var(--gold-lt);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .path-link:hover { color: var(--gold-lt); }
+    .path-divider {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 3px; background: var(--gold);
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    /* ── LISTINGS — clean white cards, editorial ───── */
+    .listings-section {
+      background: var(--white);
+      padding: 96px 52px;
+    }
+    .section-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 52px;
+      max-width: 1200px; margin-left: auto; margin-right: auto;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-kicker {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700; line-height: 1.12;
+      color: var(--ink);
+    }
+    .section-sub {
+      font-size: 15px; font-weight: 300;
+      color: var(--ink-soft); line-height: 1.7;
+      max-width: 480px; margin-top: 10px;
+    }
+    .view-all {
+      font-size: 13px; font-weight: 600;
+      color: var(--ink); text-decoration: none;
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 2px; white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .view-all:hover { color: var(--gold); }
+    .listings-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 1200px; margin: 0 auto 40px;
+    }
+    .listing-card {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 4px; overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .listing-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+    .listing-img {
+      height: 190px;
+      background: var(--sage-lt);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 600;
+      color: var(--ink-soft); text-align: center; padding: 16px;
+    }
+    .listing-body { padding: 22px; }
+    .listing-status {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .status-sale { background: #e8f5e9; color: #2e7d32; }
+    .status-lease { background: #e3f2fd; color: #1565c0; }
+    .listing-name {
+      font-family: 'Fraunces', serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .listing-addr { font-size: 13px; color: var(--ink-soft); margin-bottom: 12px; }
+    .listing-price { font-size: 20px; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
+    .listing-meta {
+      display: flex; gap: 16px; font-size: 12px;
+      color: var(--ink-soft); padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+    .listings-footer { text-align: center; max-width: 1200px; margin: 0 auto; }
+
+    /* ── MARKET INSIGHT — sage/green, editorial ─────── */
+    .insight-section {
+      background: var(--sage-lt);
+      padding: 96px 52px;
+      border-top: 4px solid var(--sage);
+    }
+    .insight-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 72px; align-items: center;
+    }
+    .insight-text .section-kicker { color: var(--sage); }
+    .insight-text .section-title { margin-bottom: 18px; }
+    .insight-body {
+      font-size: 16px; font-weight: 300;
+      color: var(--ink-mid); line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .insight-video {
+      background: var(--ink);
+      border-radius: 4px; aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.18);
+    }
+    .play-circle {
+      width: 68px; height: 68px;
+      background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform 0.2s, background 0.2s;
+    }
+    .play-circle:hover { transform: scale(1.1); background: var(--gold-lt); }
+    .play-circle::after {
+      content: ''; width: 0; height: 0;
+      border-style: solid; border-width: 11px 0 11px 20px;
+      border-color: transparent transparent transparent var(--white);
+      margin-left: 5px;
+    }
+    .video-label {
+      position: absolute; bottom: 14px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+    }
+
+    /* ── VALUATION — gold-pale background ──────────── */
+    .valuation-section {
+      background: var(--gold-pale);
+      padding: 96px 52px;
+      border-top: 4px solid var(--gold);
+    }
+    .valuation-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 72px; align-items: start;
+    }
+    .val-form {
+      background: var(--white); border-radius: 4px;
+      padding: 44px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+    .form-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--ink); margin-bottom: 28px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mid);
+    }
+    .form-group input, .form-group select {
+      padding: 11px 13px; border: 1.5px solid #d1d5db;
+      border-radius: 3px; font-size: 14px;
+      font-family: 'DM Sans', sans-serif; color: var(--ink);
+      outline: none; background: var(--white);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-full { grid-column: 1 / -1; }
+    .form-submit {
+      width: 100%; background: var(--ink); color: var(--white);
+      padding: 15px; border: none; border-radius: 3px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.03em; margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--gold); }
+    .form-note { font-size: 11px; color: var(--ink-soft); margin-top: 10px; text-align: center; }
+    .val-text .section-kicker { color: var(--gold); }
+    .val-text .section-title { margin-bottom: 18px; }
+    .val-body {
+      font-size: 16px; font-weight: 300;
+      color: var(--ink-mid); line-height: 1.8; margin-bottom: 36px;
+    }
+    .trust-row {
+      display: flex; align-items: flex-start;
+      gap: 14px; margin-bottom: 20px;
+    }
+    .trust-num {
+      font-family: 'Fraunces', serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--gold); line-height: 1; flex-shrink: 0;
+      min-width: 36px;
+    }
+    .trust-copy strong {
+      display: block; font-size: 14px; font-weight: 600;
+      color: var(--ink); margin-bottom: 2px;
+    }
+    .trust-copy span { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+    /* ── TEAM — warm cream, large photos ───────────── */
+    .team-section {
+      background: var(--cream);
+      padding: 96px 52px;
+      border-top: 1px solid var(--rule);
+    }
+    .team-header {
+      max-width: 1200px; margin: 0 auto 56px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding-bottom: 28px; border-bottom: 1px solid var(--rule);
+    }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 28px; max-width: 1200px; margin: 0 auto;
+    }
+    .team-card { position: relative; }
+    .team-photo-wrap {
+      position: relative; overflow: hidden;
+      border-radius: 3px; margin-bottom: 18px;
+      aspect-ratio: 3/4;
+    }
+    .team-photo {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .team-card:hover .team-photo { transform: scale(1.04); }
+    /* Gold corner accent */
+    .team-photo-wrap::after {
+      content: '';
+      position: absolute; bottom: 0; right: 0;
+      width: 36px; height: 36px;
+      background: var(--gold);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+    .team-name {
+      font-family: 'Fraunces', serif;
+      font-size: 19px; font-weight: 700;
+      color: var(--ink); margin-bottom: 3px;
+    }
+    .team-role {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .team-ph {
+      font-size: 13px; color: var(--ink-soft);
+      line-height: 1.6; margin-bottom: 12px;
+    }
+    .team-phone {
+      font-size: 14px; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 1px;
+    }
+
+    /* ── ABOUT — large editorial, warm ─────────────── */
+    .about-section {
+      background: var(--white);
+      padding: 96px 52px;
+      border-top: 1px solid var(--rule);
+    }
+    .about-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-ph {
+      width: 100%; aspect-ratio: 4/5;
+      background: var(--sage-lt);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 600;
+      color: var(--ink-soft); letter-spacing: 0.04em;
+      border: 2px dashed rgba(74,94,74,0.25);
+    }
+    /* Offset gold frame */
+    .about-img-wrap::before {
+      content: '';
+      position: absolute; top: 16px; left: 16px; right: -16px; bottom: -16px;
+      border: 3px solid var(--gold);
+      border-radius: 3px;
+      z-index: -1;
+    }
+    .about-text .section-kicker { color: var(--sage); }
+    .about-headline {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700; line-height: 1.12;
+      color: var(--ink); margin-bottom: 22px;
+    }
+    .about-body {
+      font-size: 16px; font-weight: 300;
+      color: var(--ink-mid); line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    /* Pull quote */
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      padding: 16px 24px;
+      margin: 28px 0;
+      background: var(--gold-pale);
+      border-radius: 0 3px 3px 0;
+    }
+    .pull-quote p {
+      font-family: 'Fraunces', serif;
+      font-size: 18px; font-weight: 400; font-style: italic;
+      color: var(--ink); line-height: 1.5;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 36px;
+      padding-top: 32px; border-top: 1px solid var(--rule);
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 38px; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px; font-weight: 500;
+      color: var(--ink-soft); text-transform: uppercase;
+      letter-spacing: 0.07em; margin-top: 4px;
+    }
+
+    /* ── CONTACT STRIP ──────────────────────────────── */
+    .contact-strip {
+      background: var(--ink);
+      padding: 72px 52px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      max-width: 100%;
+    }
+    .contact-text .section-kicker { color: var(--gold-lt); }
+    .contact-headline {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 16px;
+    }
+    .contact-sub {
+      font-size: 15px; font-weight: 300;
+      color: rgba(255,255,255,0.6); line-height: 1.7;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 18px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .contact-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-item-text strong {
+      display: block; font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.4); text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 2px;
+    }
+    .contact-item-text a, .contact-item-text span {
+      font-size: 17px; font-weight: 500;
+      color: var(--white); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item-text a:hover { color: var(--gold-lt); }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.4);
+      padding: 40px 52px;
+      display: flex; justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer img { height: 36px; opacity: 0.7; }
+    .footer-copy { font-size: 12px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .hero-card { left: 20px; right: 20px; padding: 28px; }
+      .intro-strip { flex-direction: column; padding: 40px 20px; }
+      .two-path { grid-template-columns: 1fr; }
+      .path-divider { display: none; }
+      .listings-section, .insight-section, .valuation-section,
+      .team-section, .about-section { padding: 64px 20px; }
+      .listings-grid, .team-grid { grid-template-columns: 1fr 1fr; }
+      .insight-inner, .valuation-inner, .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contact-strip { grid-template-columns: 1fr; padding: 48px 20px; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOCKUP BANNER -->
+<div class="mockup-banner">
+  &#9888; DESIGN MOCKUP v5 — For Review Purposes Only &nbsp;|&nbsp; Content marked <span style="background:#1a1a1a;color:#e8a84e;padding:1px 6px;border-radius:2px;font-size:11px;">[ CONTENT NEEDED ]</span> requires Brian-provided input
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><img src="assets/logo.png" alt="Vanguard Realty Group" /></a>
+  </div>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="commercial/index.html">Commercial ▾</a>
+      <ul class="dropdown">
+        <li><a href="commercial/office/index.html">Office Space</a></li>
+        <li><a href="commercial/industrial/index.html">Industrial</a></li>
+        <li><a href="commercial/retail/index.html">Retail</a></li>
+        <li><a href="commercial/multi-family/index.html">Multi-Family</a></li>
+      </ul>
+    </li>
+    <li><a href="residential/index.html">Residential</a></li>
+    <li><a href="team/index.html">Our Team</a></li>
+    <li><a href="contact/index.html">Contact</a></li>
+  </ul>
+  <a href="tel:5419799929" class="nav-phone">541-979-9929</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero_main.jpg">
+    <source src="assets/images/hero-video.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-video-fallback"></div>
+
+  <div class="hero-card">
+    <!-- SEO: H1 contains primary keyword "commercial real estate Corvallis Oregon" naturally -->
+    <div class="hero-kicker">Commercial Real Estate &amp; Residential — Corvallis, Oregon</div>
+    <h1 class="hero-headline">Real estate the way it should be. Personal.</h1>
+    <p class="hero-sub">Your local experts in commercial and residential real estate across Corvallis, Albany, and the Willamette Valley. We know this market — and we'll shoot you straight every step of the way.</p>
+    <div class="hero-actions">
+      <a href="residential/index.html" class="btn-primary">Search Homes</a>
+      <a href="commercial/index.html" class="btn-text">View Commercial →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PERSONALITY STRIP -->
+<div class="intro-strip">
+  <div class="intro-quote">
+    "We're not here to close a deal and move on. We're here to <strong>earn your trust</strong> — and keep it long after the paperwork is signed."
+  </div>
+  <a href="team/index.html" class="intro-cta">Meet the Team →</a>
+</div>
+
+<!-- CHOOSE YOUR PATH -->
+<div class="two-path">
+  <div class="path-divider"></div>
+  <a href="residential/index.html" class="path-panel">
+    <div class="path-bg" style="background-image: url('assets/images/hero_main.jpg'); background-position: center 70%;"></div>
+    <div class="path-overlay"></div>
+    <div class="path-content">
+      <div class="path-tag">Residential</div>
+      <div class="path-title">Find the Home You'll Actually Love</div>
+      <p class="path-desc">Search active listings, get a home valuation, or connect with an agent to talk through your options. No pressure. Just honest help.</p>
+      <span class="path-link">Search Homes →</span>
+    </div>
+  </a>
+  <a href="commercial/index.html" class="path-panel">
+    <div class="path-bg" style="background-image: url('assets/images/hero_main.jpg'); background-position: center 20%;"></div>
+    <div class="path-overlay"></div>
+    <div class="path-content">
+      <div class="path-tag">Commercial</div>
+      <!-- SEO: Keyword-rich heading for commercial path panel -->
+      <div class="path-title">Commercial Real Estate in the Willamette Valley</div>
+      <p class="path-desc">Office space, retail, industrial property, and land across Corvallis, Albany, and the mid-valley. Our team has deep roots in the local commercial market and knows where the opportunities are.</p>
+      <span class="path-link">View Commercial →</span>
+    </div>
+  </a>
+</div>
+
+<!-- COMMERCIAL LISTINGS -->
+<section class="listings-section">
+  <div class="section-header">
+    <div>
+      <!-- SEO: H2 targets "commercial real estate listings Corvallis" -->
+      <div class="section-kicker">Commercial Real Estate — Corvallis &amp; Albany, Oregon</div>
+      <h2 class="section-title">Active Commercial Listings</h2>
+      <p class="section-sub">Office space, industrial property, retail, and land for sale and lease across Corvallis, Albany, and the Willamette Valley. Updated regularly from our Crexi profile.</p>
+    </div>
+    <a href="commercial/index.html" class="view-all">View All 9 Listings →</a>
+  </div>
+  <div class="listings-grid">
+    <div class="listing-card">
+      <div class="listing-img">[ PROPERTY PHOTO — Groome Transport ]</div>
+      <div class="listing-body">
+        <span class="listing-status status-sale">For Sale</span>
+        <div class="listing-name">Groome Transport</div>
+        <div class="listing-addr">34030 Excor Rd SW, Albany, OR 97321</div>
+        <div class="listing-price">$1,250,000</div>
+        <div class="listing-meta">
+          <span>Commercial</span>
+          <span>200,000+ SqFt</span>
+        </div>
+      </div>
+    </div>
+    <div class="listing-card">
+      <div class="listing-img">[ PROPERTY PHOTO — Kammerer Industrial Park ]</div>
+      <div class="listing-body">
+        <span class="listing-status status-sale">For Sale</span>
+        <div class="listing-name">Kammerer Industrial Park</div>
+        <div class="listing-addr">720 NE Granger Ave, Corvallis, OR 97330</div>
+        <div class="listing-price">$5,500,000</div>
+        <div class="listing-meta">
+          <span>Industrial</span>
+          <span>37,915 SqFt</span>
+        </div>
+      </div>
+    </div>
+    <div class="listing-card">
+      <div class="listing-img">[ PROPERTY PHOTO — Pacific Blvd SW ]</div>
+      <div class="listing-body">
+        <span class="listing-status status-lease">For Lease</span>
+        <div class="listing-name">2115 Pacific Blvd SW</div>
+        <div class="listing-addr">Albany, OR 97321</div>
+        <div class="listing-price">$16 / SF / YR</div>
+        <div class="listing-meta">
+          <span>Retail / Office</span>
+          <span>1,828 SqFt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="listings-footer">
+    <a href="commercial/index.html" class="btn-primary" style="display:inline-block;">View All Commercial Listings →</a>
+  </div>
+</section>
+
+<!-- MARKET INSIGHT -->
+<section class="insight-section">
+  <div class="insight-inner">
+    <div class="insight-text">
+      <!-- SEO: H2 targets "Willamette Valley commercial real estate market" -->
+      <div class="section-kicker">Willamette Valley Market Insights</div>
+      <h2 class="section-title">Straight Talk on the Corvallis &amp; Valley Market</h2>
+      <p class="insight-body">
+        No spin. No jargon. Just honest takes on what's actually happening in the Corvallis and Willamette Valley commercial real estate market — what buyers and tenants need to know, what sellers often get wrong, and where the real opportunities are right now.
+      </p>
+      <a href="contact/index.html" class="btn-primary">Connect With Our Team →</a>
+    </div>
+    <div class="insight-video">
+      <div class="play-circle"></div>
+      <div class="video-label">[ CLIENT VIDEO — CONTENT NEEDED ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME VALUATION -->
+<section class="valuation-section">
+  <div class="valuation-inner">
+    <div class="val-form">
+      <div class="form-title">What's Your Home Worth?</div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" /></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(541) 555-0100" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full"><label>Property Address</label><input type="text" placeholder="123 Main St, Corvallis, OR 97330" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Property Type</label>
+          <select><option>Single Family Home</option><option>Condo / Townhome</option><option>Multi-Family</option><option>Commercial</option><option>Land</option></select>
+        </div>
+        <div class="form-group">
+          <label>Timeline</label>
+          <select><option>Just curious</option><option>Within 6 months</option><option>Within 3 months</option><option>Ready now</option></select>
+        </div>
+      </div>
+      <button class="form-submit">Get My Free Estimate</button>
+      <p class="form-note">No obligation. An agent will follow up within 1 business day.</p>
+    </div>
+    <div class="val-text">
+      <!-- SEO: H2 targets "home valuation Corvallis Oregon" -->
+      <div class="section-kicker">Free Home Valuation — Corvallis &amp; Willamette Valley</div>
+      <h2 class="section-title">Skip the Algorithm. Get a Real Answer.</h2>
+      <p class="val-body">Online estimates can be off by tens of thousands of dollars. We'll give you an honest, local assessment of your Corvallis or Willamette Valley property — based on what's actually selling in your neighborhood, not a computer guess.</p>
+      <div class="trust-row">
+        <div class="trust-num">01</div>
+        <div class="trust-copy"><strong>No obligation, ever</strong><span>A free estimate with zero pressure to list.</span></div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-num">02</div>
+        <div class="trust-copy"><strong>20+ years of local knowledge</strong><span>We know what your neighborhood is actually doing.</span></div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-num">03</div>
+        <div class="trust-copy"><strong>Straight answers, every time</strong><span>No spin, no pressure. Just honest guidance from people who know this market.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="team-section">
+  <div class="team-header">
+    <div>
+      <div class="section-kicker">The People Behind the Sign</div>
+      <h2 class="section-title">Meet the Vanguard Team</h2>
+    </div>
+    <p style="font-size:15px; font-weight:300; color:var(--ink-soft); max-width:380px; text-align:right;">We're your neighbors. We know this valley. And we'll always be straight with you.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="assets/headshots/brian_weinhold.jpg" alt="Brian Weinhold" class="team-photo" />
+      </div>
+      <div class="team-name">Brian Weinhold</div>
+      <div class="team-role">Owner / Principal Broker</div>
+      <p class="team-ph"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ SHORT BIO — 2 sentences ]</span></p>
+      <a href="tel:5419799929" class="team-phone">541-979-9929</a>
+    </div>
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="assets/headshots/jenny_bates.jpg" alt="Jenny Bates" class="team-photo" />
+      </div>
+      <div class="team-name">Jenny Bates</div>
+      <div class="team-role"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ TITLE ]</span></div>
+      <p class="team-ph"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ SHORT BIO — 2 sentences ]</span></p>
+      <a href="tel:5419530423" class="team-phone">541-953-0423</a>
+    </div>
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="assets/headshots/bob_byrd.jpg" alt="Bob Byrd" class="team-photo" />
+      </div>
+      <div class="team-name">Bob Byrd</div>
+      <div class="team-role"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ TITLE ]</span></div>
+      <p class="team-ph"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ SHORT BIO — 2 sentences ]</span></p>
+      <a href="tel:5416192514" class="team-phone">541-619-2514</a>
+    </div>
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="assets/headshots/tiffany_stoffer.jpg" alt="Tiffany Stoffer" class="team-photo" />
+      </div>
+      <div class="team-name">Tiffany Stoffer</div>
+      <div class="team-role"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ TITLE ]</span></div>
+      <p class="team-ph"><span style="background:#f0f4f0;border:1.5px dashed #7a9a7a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600;color:#3a5a3a;">[ SHORT BIO — 2 sentences ]</span></p>
+      <a href="tel:5417401800" class="team-phone">541-740-1800</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <div class="about-img-ph">[ TEAM PHOTO — CONTENT NEEDED ]</div>
+    </div>
+    <div class="about-text">
+      <!-- SEO: About section reinforces "Corvallis Oregon real estate broker" and brand trust signals -->
+      <div class="section-kicker">About Vanguard Realty Group — Corvallis, Oregon</div>
+      <h2 class="about-headline">We started Vanguard because real estate deserved better.</h2>
+      <p class="about-body">Founded in 2015, Vanguard Realty Group is a Corvallis, Oregon-based brokerage serving buyers, sellers, and commercial clients across the Willamette Valley. We set out to build a different kind of real estate company — one where clients are treated like people, not pipeline. We're serious when the situation calls for it, and we know when to lighten up too.</p>
+      <div class="pull-quote">
+        <p>"Every person deserves the personal touch. Relationships take time — and they're worth every minute."</p>
+      </div>
+      <p class="about-body">We're not the biggest brokerage in the valley. We're the one that picks up the phone, shoots you straight, and stays with you long after closing day.</p>
+      <div class="about-stats">
+        <div><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
+        <div><div class="stat-num">2015</div><div class="stat-label">Founded</div></div>
+        <div><div class="stat-num">4</div><div class="stat-label">Dedicated Agents</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-text">
+    <div class="section-kicker">Get in Touch</div>
+    <h2 class="contact-headline">Let's talk about what you're trying to accomplish.</h2>
+    <p class="contact-sub">Whether you're buying, selling, or just exploring your options — we'll give you a straight answer and help you figure out your next move.</p>
+  </div>
+  <div class="contact-details">
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <div class="contact-item-text">
+        <strong>Phone</strong>
+        <a href="tel:5419799929">541-979-9929</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <div class="contact-item-text">
+        <strong>Email</strong>
+        <a href="mailto:info@vanguardproperties.net">info@vanguardproperties.net</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="contact-item-text">
+        <strong>Location</strong>
+        <span>Corvallis, Oregon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="assets/logo.png" alt="Vanguard Realty Group" />
+  <div class="footer-copy">© 2026 Vanguard Realty Group, Inc. · Oregon License #200510090</div>
+  <div class="footer-links">
+    <a href="contact/index.html">Privacy</a>
+    <a href="contact/index.html">Terms</a>
+    <a href="contact/index.html">Careers</a>
+  </div>
+</footer>
+
+</body>
+</html>

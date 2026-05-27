@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homes for Sale Corvallis, Oregon | Vanguard Realty Group</title>
+  <meta name="description" content="Buy or sell a home in Corvallis, Albany, Lebanon, and the Willamette Valley. Vanguard Realty Group — local residential real estate experts who give you straight answers." />
+  <link rel="canonical" href="https://bosonhub.github.io/vanguard-mockup-v5/residential/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/shared.css" />
+  <style>
+    /* Path panels */
+    .path-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+    .path-panel {
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; padding: 52px;
+      text-decoration: none; min-height: 380px;
+    }
+    .path-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s; }
+    .path-panel:hover .path-bg { transform: scale(1.04); }
+    .path-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); }
+    .path-content { position: relative; }
+    .path-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 10px; }
+    .path-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
+    .path-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 18px; }
+    .path-link { font-size: 13px; font-weight: 600; color: var(--gold-lt); letter-spacing: 0.04em; }
+
+    /* Seller section */
+    .seller-section { background: var(--ink); padding: 80px 52px; }
+    .seller-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .seller-form { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-top: 3px solid var(--gold); padding: 40px; }
+    .seller-form h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.07em; }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.15); font-size: 14px; font-family: 'DM Sans', sans-serif; background: rgba(255,255,255,0.07); color: var(--white); }
+    .form-group select option { background: #1a1a1a; color: var(--white); }
+    .form-submit { width: 100%; padding: 15px; background: var(--gold); color: var(--white); border: none; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.03em; margin-top: 8px; font-family: 'DM Sans', sans-serif; }
+    .form-submit:hover { background: var(--gold-lt); }
+    .form-note { font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 10px; }
+    .seller-trust-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px; }
+    .seller-trust-num { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; width: 36px; }
+    .seller-trust-copy strong { display: block; font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+    .seller-trust-copy span { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    /* IDX section */
+    .idx-section { background: #f7f5f1; padding: 64px 52px; border-top: 3px solid var(--gold); }
+
+    /* Buyer section */
+    .buyer-section { background: var(--cream); padding: 80px 52px; }
+    .buyer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: start; }
+    .content-body { font-size: 16px; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 20px; }
+    .market-card { background: var(--white); border: 1px solid var(--rule); border-top: 4px solid var(--gold); padding: 36px; }
+    .market-card h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+
+    /* Mobile */
+    @media (max-width: 960px) {
+      .path-grid { grid-template-columns: 1fr; }
+      .seller-inner { grid-template-columns: 1fr; gap: 36px; }
+      .buyer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .seller-section, .buyer-section, .idx-section { padding: 56px 20px; }
+    }
+    @media (max-width: 768px) {
+      .path-panel { padding: 32px 20px; min-height: 280px; }
+      .path-title { font-size: 22px; }
+      .seller-form { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mockup-banner">&#9888; DESIGN MOCKUP v5 &nbsp;|&nbsp; For Review Purposes Only &nbsp;|&nbsp; Content marked <strong>[ CONTENT NEEDED ]</strong> requires Brian-provided input</div>
+
+<nav>
+  <div class="nav-logo"><a href="../index.html"><img src="../assets/logo.png" alt="Vanguard Realty Group" /></a></div>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="../commercial/index.html">Commercial ▾</a>
+      <ul class="dropdown">
+        <li><a href="../commercial/office/index.html">Office Space</a></li>
+        <li><a href="../commercial/industrial/index.html">Industrial</a></li>
+        <li><a href="../commercial/retail/index.html">Retail</a></li>
+        <li><a href="../commercial/multi-family/index.html">Multi-Family</a></li>
+      </ul>
+    </li>
+    <li><a href="../residential/index.html" style="color:var(--gold);">Residential</a></li>
+    <li><a href="../team/index.html">Our Team</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+  <a href="tel:5419799929" class="nav-phone">541-979-9929</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../assets/images/hero_main.jpg');"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="../index.html">Home</a> / Residential</div>
+    <div class="page-kicker">Residential Real Estate — Corvallis, Albany &amp; Lebanon</div>
+    <h1>Buying or Selling a Home in the Willamette Valley</h1>
+    <p>Whether you're ready to list, just exploring your options, or searching for your next home — we'll give you honest guidance and local expertise at every step.</p>
+  </div>
+</div>
+
+<!-- SELLER / BUYER PATHS — Seller first per Brian's request -->
+<div class="path-grid">
+  <a href="#valuation" class="path-panel">
+    <div class="path-bg" style="background-image: url('../assets/images/hero_main.jpg'); background-position: center 70%;"></div>
+    <div class="path-overlay"></div>
+    <div class="path-content">
+      <div class="path-tag">Sellers</div>
+      <div class="path-title">What Is Your Home Worth?</div>
+      <p class="path-desc">Get a free, honest valuation from an agent who knows what's actually selling in your neighborhood — not a computer algorithm.</p>
+      <span class="path-link">Get a Free Estimate →</span>
+    </div>
+  </a>
+  <a href="#buyers" class="path-panel">
+    <div class="path-bg" style="background-image: url('../assets/images/hero_main.jpg'); background-position: center 30%;"></div>
+    <div class="path-overlay"></div>
+    <div class="path-content">
+      <div class="path-tag">Buyers</div>
+      <div class="path-title">Find the Home You'll Actually Love</div>
+      <p class="path-desc">Search active listings with map search, get neighborhood insights, and work with an agent who knows every street in the valley.</p>
+      <span class="path-link">Start Your Search →</span>
+    </div>
+  </a>
+</div>
+
+<!-- SELLER / VALUATION SECTION — Primary section per Brian's request -->
+<div class="seller-section" id="valuation">
+  <div class="seller-inner">
+    <div>
+      <div class="section-kicker" style="color:var(--gold-lt);">Thinking of Selling?</div>
+      <h2 class="section-title" style="color:var(--white);">Skip the Algorithm. Get a Real Answer.</h2>
+      <p style="font-size:16px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:36px;">Online estimates can be off by tens of thousands of dollars. We'll give you an honest, local assessment of your Corvallis, Albany, or Lebanon property — based on what's actually selling in your neighborhood, not a computer guess.</p>
+
+      <div class="seller-trust-row">
+        <div class="seller-trust-num">01</div>
+        <div class="seller-trust-copy">
+          <strong>No obligation, ever</strong>
+          <span>A free estimate with zero pressure to list. You get the information and make the call.</span>
+        </div>
+      </div>
+      <div class="seller-trust-row">
+        <div class="seller-trust-num">02</div>
+        <div class="seller-trust-copy">
+          <strong>Based on real comparable sales</strong>
+          <span>Not an algorithm — actual recent sales in your neighborhood, analyzed by a local agent.</span>
+        </div>
+      </div>
+      <div class="seller-trust-row">
+        <div class="seller-trust-num">03</div>
+        <div class="seller-trust-copy">
+          <strong>Straight talk on timing</strong>
+          <span>We'll tell you if now is the right time to sell — or if waiting makes more sense for your situation.</span>
+        </div>
+      </div>
+      <div class="seller-trust-row">
+        <div class="seller-trust-num">04</div>
+        <div class="seller-trust-copy">
+          <strong>Serving Corvallis, Albany, Lebanon &amp; beyond</strong>
+          <span>We know the Willamette Valley market — from downtown Corvallis to the I-5 corridor communities.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="seller-form">
+      <h3>Get Your Free Home Valuation</h3>
+      <div class="form-group"><label>Property Address</label><input type="text" placeholder="123 Main St, Corvallis, OR" /></div>
+      <div class="form-group"><label>Property Type</label>
+        <select>
+          <option>Single Family</option>
+          <option>Condo / Townhome</option>
+          <option>Multi-Family</option>
+          <option>Land</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name" /></div>
+      <div class="form-group"><label>Phone or Email</label><input type="text" placeholder="Best way to reach you" /></div>
+      <button class="form-submit">Get My Free Estimate</button>
+      <p class="form-note">No obligation. An agent will follow up within 1 business day.</p>
+    </div>
+  </div>
+</div>
+
+<!-- IDX BROKER SEARCH WIDGET -->
+<div class="idx-section" id="buyers">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div class="section-kicker">MLS-Connected Home Search</div>
+        <h2 class="section-title" style="margin-bottom:8px;">Search Homes for Sale in Corvallis, Albany &amp; Lebanon</h2>
+        <p style="font-size:14px;color:var(--ink-soft);max-width:560px;">Live MLS listings updated daily. Use the map search to explore by neighborhood, price, bedrooms, or school district.</p>
+      </div>
+      <div style="background:var(--gold);color:var(--white);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:8px 14px;white-space:nowrap;align-self:flex-start;">Powered by IDX Broker</div>
+    </div>
+    <div>
+      <div style="font-family:'Fraunces',serif; font-size:20px; font-weight:700; color:var(--ink); margin-bottom:10px;">IDX Broker Search Widget</div>
+      <p style="font-size:13px; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">Static placeholder image below — the live IDX Broker map search widget will replace this in the WordPress build via the Impress plugin (shortcode or block embed, fully native, no link-out required).</p>
+      <img src="../assets/images/idx-broker-sample.png" alt="IDX Broker sample listings from Vanguard Realty Group" style="width:100%; max-width:860px; display:block; border:1px solid rgba(0,0,0,0.1); box-shadow:0 4px 24px rgba(0,0,0,0.08);" />
+      <p style="font-size:12px; color:var(--ink-soft); margin-top:10px;">Sample output from Brian's IDX Broker account — actual listings from Vanguard Realty Group via Willamette Valley MLS. <a href="https://elmstreet.com/idx-broker" target="_blank" style="color:var(--gold);">Learn about IDX Broker by Elm Street →</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- BUYER SECTION -->
+<div class="buyer-section">
+  <div class="buyer-inner">
+    <div>
+      <div class="section-kicker">Buying a Home in Corvallis, Albany &amp; Lebanon</div>
+      <h2 class="section-title">Local expertise that actually makes a difference.</h2>
+      <p class="content-body">The Corvallis and Willamette Valley residential market is competitive, especially in the spring and summer months. Homes in desirable neighborhoods move quickly, and buyers who are well-prepared — with financing lined up and a clear sense of their priorities — have a significant advantage.</p>
+      <p class="content-body">We'll help you understand the market, identify the right neighborhoods for your lifestyle and budget, and negotiate effectively when you find the right home. Straight advice from someone who knows this market inside and out.</p>
+      <a href="../contact/index.html" class="btn-primary">Talk to a Buyer's Agent</a>
+    </div>
+    <div class="market-card">
+      <h3>Willamette Valley Market</h3>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:16px;">Corvallis is consistently ranked among the most livable small cities in Oregon. Proximity to OSU, a vibrant downtown, and access to outdoor recreation keep demand for residential real estate strong year-round.</p>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:20px;">Albany and Lebanon offer more affordable options with excellent access to Corvallis and the I-5 corridor — popular choices for buyers who want more space for their budget.</p>
+      <a href="../contact/index.html" class="btn-primary" style="width:100%;text-align:center;display:block;">Get a Free Buyer Consultation</a>
+    </div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <div class="section-kicker" style="color:var(--gold-lt);">Residential Real Estate</div>
+  <h2>Ready to make your move in the Willamette Valley?</h2>
+  <p>Buying, selling, or just figuring out your options — we'll give you honest answers and stay with you every step of the way.</p>
+  <div class="btn-row">
+    <a href="../contact/index.html" class="btn-white">Talk to an Agent</a>
+    <a href="tel:5419799929" class="btn-ghost">541-979-9929</a>
+  </div>
+</div>
+
+<footer>
+  <a href="../index.html"><img src="../assets/logo.png" alt="Vanguard Realty Group" /></a>
+  <div class="footer-copy">© 2026 Vanguard Realty Group, Inc. &middot; Oregon License #200510090</div>
+  <div class="footer-links"><a href="../contact/index.html">Privacy</a><a href="../contact/index.html">Terms</a><a href="../contact/index.html">Contact</a></div>
+</footer>
+</body>
+</html>
