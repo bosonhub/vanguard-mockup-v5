@@ -92,11 +92,11 @@ nav {
   background-size: cover; background-position: center;
   opacity: 0.88;
 }
-/* Warm gradient overlay — left-side text legibility only, right side stays bright */
+/* Subtle gradient — just enough contrast for text, image stays vivid */
 .page-hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(20,14,8,0.55) 0%, rgba(20,14,8,0.18) 55%, rgba(20,14,8,0.04) 100%);
+  background: linear-gradient(to right, rgba(20,14,8,0.32) 0%, rgba(20,14,8,0.08) 50%, rgba(20,14,8,0.00) 100%);
   pointer-events: none;
 }
 .page-hero-content { position: relative; max-width: 760px; }
