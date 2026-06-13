@@ -96,42 +96,8 @@
   <p style="max-width:1200px; margin:20px auto 0; font-size:12px; color:var(--ink-soft); text-align:center;">Data sourced from <a href="https://www.crexi.com" target="_blank" style="color:var(--gold);">Crexi.com</a>. All information deemed reliable but not guaranteed.</p>
 </section>
 
-<script>
-(function() {
-  const CATEGORY = 'office';
-  function renderListings(listings) {
-    const grid = document.getElementById('listings-grid');
-    const filtered = listings.filter(l => l.category && l.category.includes(CATEGORY));
-    if (!filtered.length) {
-      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">No office listings currently active. <a href="../../contact/index.html" style="color:var(--gold);">Contact us</a> to discuss off-market opportunities.</div>';
-      return;
-    }
-    grid.innerHTML = filtered.map(l => {
-      const sc = l.type === 'For Sale' ? 'status-sale' : 'status-lease';
-      return `<div class="listing-card">
-        <div class="listing-img" style="background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);">[&nbsp;Property Photo&nbsp;]</div>
-        <div class="listing-body">
-          <span class="listing-status ${sc}">${l.type}</span>
-          <div class="listing-name">${l.name}</div>
-          <div class="listing-addr">${l.address}</div>
-          <div class="listing-price">${l.price || 'Price Upon Request'}</div>
-          <div class="listing-meta">
-            ${l.propertyType ? '<span>'+l.propertyType+'</span>' : ''}
-            ${l.sqft ? '<span>'+l.sqft+'</span>' : ''}
-            ${l.leaseType ? '<span>'+l.leaseType+'</span>' : ''}
-          </div>
-          ${l.description ? '<p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin:10px 0 14px;">'+l.description+'</p>' : ''}
-          <a href="${l.url}" target="_blank" class="btn-outline" style="font-size:12px;padding:8px 16px;">View on Crexi →</a>
-        </div>
-      </div>`;
-    }).join('');
-  }
-  fetch('../../listings.json?t='+Date.now())
-    .then(r => r.ok ? r.json() : null)
-    .then(data => { if (data && data.listings) renderListings(data.listings); })
-    .catch(() => { document.getElementById('listings-grid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">Unable to load listings. <a href="https://www.crexi.com/profile/brian-weinhold-brianweinho" target="_blank" style="color:var(--gold);">View on Crexi →</a></div>'; });
-})();
-</script>
+<script src="../../assets/listings-filter.js"></script>
+<script>initListings('office','../../listings.json','listings-grid','https://www.crexi.com/profile/brian-weinhold-brianweinho');</script>
 
 <div class="cta-strip">
   <div class="section-kicker" style="color:var(--gold-lt);">Office Space in Corvallis</div>

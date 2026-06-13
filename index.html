@@ -365,6 +365,11 @@
       font-size: 11px; font-weight: 600;
       color: var(--ink-soft); text-align: center; padding: 16px;
     }
+    .listing-img-link, .listing-img-placeholder {
+      height: 190px; border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0; display: block; overflow: hidden;
+    }
+    .listing-img-link:hover img { transform: scale(1.05); }
     .listing-body { padding: 22px; }
     .listing-status {
       display: inline-block;
@@ -801,46 +806,8 @@
     </div>
     <a href="commercial/index.html" class="view-all">View All 9 Listings →</a>
   </div>
-  <div class="listings-grid">
-    <div class="listing-card">
-      <div class="listing-img">[ PROPERTY PHOTO — Groome Transport ]</div>
-      <div class="listing-body">
-        <span class="listing-status status-sale">For Sale</span>
-        <div class="listing-name">Groome Transport</div>
-        <div class="listing-addr">34030 Excor Rd SW, Albany, OR 97321</div>
-        <div class="listing-price">$1,250,000</div>
-        <div class="listing-meta">
-          <span>Commercial</span>
-          <span>200,000+ SqFt</span>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card">
-      <div class="listing-img">[ PROPERTY PHOTO — Kammerer Industrial Park ]</div>
-      <div class="listing-body">
-        <span class="listing-status status-sale">For Sale</span>
-        <div class="listing-name">Kammerer Industrial Park</div>
-        <div class="listing-addr">720 NE Granger Ave, Corvallis, OR 97330</div>
-        <div class="listing-price">$5,500,000</div>
-        <div class="listing-meta">
-          <span>Industrial</span>
-          <span>37,915 SqFt</span>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card">
-      <div class="listing-img">[ PROPERTY PHOTO — Pacific Blvd SW ]</div>
-      <div class="listing-body">
-        <span class="listing-status status-lease">For Lease</span>
-        <div class="listing-name">2115 Pacific Blvd SW</div>
-        <div class="listing-addr">Albany, OR 97321</div>
-        <div class="listing-price">$16 / SF / YR</div>
-        <div class="listing-meta">
-          <span>Retail / Office</span>
-          <span>1,828 SqFt</span>
-        </div>
-      </div>
-    </div>
+  <div class="listings-grid" id="homepage-listings-grid">
+    <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">Loading listings…</div>
   </div>
   <div class="listings-footer">
     <a href="commercial/index.html" class="btn-primary" style="display:inline-block;">View All Commercial Listings →</a>
@@ -1037,6 +1004,56 @@
     <a href="contact/index.html">Careers</a>
   </div>
 </footer>
+
+<script>
+(function() {
+  var PLACEHOLDER_SVG = 'assets/listing-placeholder.svg';
+  var CREXI_URL = 'https://www.crexi.com/profile/brian-weinhold-brianweinho';
+  var MAX_DISPLAY = 3;
+
+  function renderImg(l) {
+    var ph = '<a href="' + l.url + '" target="_blank" class="listing-img listing-img-placeholder" style="display:block;overflow:hidden;padding:0;" title="View photos on Crexi"><img src="' + PLACEHOLDER_SVG + '" alt="View photos on Crexi" style="width:100%;height:100%;object-fit:cover;display:block;" /></a>';
+    if (!l.image) return ph;
+    return '<a href="' + l.url + '" target="_blank" class="listing-img listing-img-link" style="display:block;overflow:hidden;padding:0;"><img src="' + l.image + '" alt="' + (l.name || 'Property photo') + '" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onerror="this.closest(\'a\').outerHTML=\'<a href=\\\''+l.url+'\\\'  target=\\\'_blank\\\' class=\\\'listing-img listing-img-placeholder\\\' style=\\\'display:block;overflow:hidden;padding:0;\\\'><img src=\\\'assets/listing-placeholder.svg\\\' alt=\\\'View photos on Crexi\\\' style=\\\'width:100%;height:100%;object-fit:cover;display:block;\\\'></a>\'" /></a>';
+  }
+
+  fetch('listings.json?t=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      var grid = document.getElementById('homepage-listings-grid');
+      if (!grid) return;
+      if (!data || !data.listings || !data.listings.length) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">No listings currently available. <a href="' + CREXI_URL + '" target="_blank" style="color:var(--gold);">View all on Crexi →</a></div>';
+        return;
+      }
+      var items = data.listings.slice(0, MAX_DISPLAY);
+      // Update the "View All" count
+      var viewAll = document.querySelector('.listings-section .view-all');
+      if (viewAll) viewAll.textContent = 'View All ' + data.listings.length + ' Listings →';
+      grid.innerHTML = items.map(function(l) {
+        var sc = l.type === 'For Sale' ? 'status-sale' : 'status-lease';
+        return '<div class="listing-card">' +
+          renderImg(l) +
+          '<div class="listing-body">' +
+            '<span class="listing-status ' + sc + '">' + l.type + '</span>' +
+            '<div class="listing-name">' + l.name + '</div>' +
+            '<div class="listing-addr">' + l.address + '</div>' +
+            '<div class="listing-price">' + (l.price || 'Price Upon Request') + '</div>' +
+            '<div class="listing-meta">' +
+              (l.propertyType ? '<span>' + l.propertyType + '</span>' : '') +
+              (l.sqft ? '<span>' + l.sqft + '</span>' : '') +
+            '</div>' +
+            '<a href="' + l.url + '" target="_blank" class="btn-outline" style="font-size:12px;padding:8px 16px;">View on Crexi →</a>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    })
+    .catch(function() {
+      var grid = document.getElementById('homepage-listings-grid');
+      if (grid) grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">Unable to load listings. <a href="' + CREXI_URL + '" target="_blank" style="color:var(--gold);">View on Crexi →</a></div>';
+    });
+})();
+</script>
 
 </body>
 </html>
