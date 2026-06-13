@@ -2,13 +2,25 @@
  * Vanguard Realty Group — Dynamic Listings Filter
  * Usage: include this script, then call initListings(category, jsonPath, gridId, crexiUrl)
  * category: string matching listings.json category array values (e.g. 'industrial', 'retail', 'office', 'multi-family', 'land')
+ * Supports optional `image` field on each listing — displays property photo when available.
  */
 function initListings(category, jsonPath, gridId, crexiUrl) {
-  const grid = document.getElementById(gridId);
+  var grid = document.getElementById(gridId);
   if (!grid) return;
 
+  function renderImage(l) {
+    if (l.image) {
+      return '<a href="' + l.url + '" target="_blank" class="listing-img listing-img-link" style="display:block;overflow:hidden;padding:0;">' +
+        '<img src="' + l.image + '" alt="' + (l.name || 'Property photo') + '" ' +
+        'style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" ' +
+        'onerror="this.parentElement.outerHTML=\'<div class=\\"listing-img\\" style=\\"background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);\\">[&nbsp;Property Photo&nbsp;]</div>\'" />' +
+      '</a>';
+    }
+    return '<div class="listing-img" style="background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);">[ Property Photo ]</div>';
+  }
+
   function render(listings) {
-    const filtered = listings.filter(l => l.category && l.category.includes(category));
+    var filtered = listings.filter(function(l) { return l.category && l.category.includes(category); });
     if (!filtered.length) {
       grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--ink-soft);">No ' + category + ' listings currently active. <a href="' + (crexiUrl || '#') + '" target="_blank" style="color:var(--gold);">View all on Crexi</a> or <a href="../../contact/index.html" style="color:var(--gold);">contact us</a> to discuss off-market opportunities.</div>';
       return;
@@ -16,7 +28,7 @@ function initListings(category, jsonPath, gridId, crexiUrl) {
     grid.innerHTML = filtered.map(function(l) {
       var sc = l.type === 'For Sale' ? 'status-sale' : 'status-lease';
       return '<div class="listing-card">' +
-        '<div class="listing-img" style="background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);">[ Property Photo ]</div>' +
+        renderImage(l) +
         '<div class="listing-body">' +
           '<span class="listing-status ' + sc + '">' + l.type + '</span>' +
           '<div class="listing-name">' + l.name + '</div>' +

@@ -242,8 +242,11 @@
     }
     grid.innerHTML = items.map(l => {
       const statusClass = l.type === 'For Sale' ? 'status-sale' : 'status-lease';
+      const imgHtml = l.image
+        ? `<a href="${l.url}" target="_blank" class="listing-img listing-img-link" style="display:block;overflow:hidden;padding:0;"><img src="${l.image}" alt="${l.name || 'Property photo'}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onerror="this.parentElement.outerHTML='<div class=\'listing-img\' style=\'background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);\'>[ Property Photo ]</div>'" /></a>`
+        : `<div class="listing-img" style="background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);">[ Property Photo ]</div>`;
       return `<div class="listing-card">
-        <div class="listing-img" style="background:#e8e4dc;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);">[ Property Photo ]</div>
+        ${imgHtml}
         <div class="listing-body">
           <span class="listing-status ${statusClass}">${l.type}</span>
           <div class="listing-name">${l.name}</div>
@@ -311,7 +314,7 @@
         </div>
 
         <div style="font-size:12px; color:var(--ink-soft); padding-top:16px; border-top:1px solid var(--rule); line-height:1.6;">
-          <strong style="color:var(--ink);">Not sure about expenses?</strong> A common rule of thumb for commercial property is 30–40% of gross income. For NNN leases, tenant pays most expenses — use a lower figure.
+          <strong style="color:var(--ink);">Not sure about expenses?</strong> A common rule of thumb: 15–25% of gross income for NNN leases (tenant covers taxes, insurance, maintenance). Gross leases where the landlord pays operating costs typically run 35–50%. When in doubt, ask your broker.
         </div>
       </div>
 
@@ -373,11 +376,11 @@ function calcROI() {
   if (capRate !== null) {
     capEl.textContent = capRate.toFixed(2) + '%';
     let context = '';
-    if (capRate < 4) context = 'A cap rate under 4% is on the low end — typical of premium urban assets or very low-risk properties. In the Corvallis/Albany market, this would be considered a strong, stable asset.';
-    else if (capRate < 6) context = 'A cap rate of ' + capRate.toFixed(1) + '% is in the moderate range — solid for a well-located commercial property in the Willamette Valley. This is a reasonable return for a stabilized asset.';
-    else if (capRate < 8) context = 'A cap rate of ' + capRate.toFixed(1) + '% is healthy for this market. This suggests a good return relative to risk — worth a closer look. Talk to an agent about what\'s driving the income.';
-    else if (capRate < 12) context = 'A cap rate of ' + capRate.toFixed(1) + '% is on the higher end — potentially strong upside, but worth understanding why. Higher cap rates can reflect vacancy risk, deferred maintenance, or a value-add opportunity.';
-    else context = 'A cap rate above 12% is unusually high. This may indicate significant risk, high vacancy, or a distressed asset — but it could also be a value-add opportunity worth exploring with a broker.';
+    if (capRate < 5) context = 'A cap rate under 5% is below market in the current rate environment. With commercial lending rates in the mid-6% range, this property would produce negative leverage — meaning your financing costs exceed your return. These deals can still make sense for 1031 exchanges or all-cash buyers, but run the numbers carefully.';
+    else if (capRate < 6.5) context = 'A cap rate of ' + capRate.toFixed(1) + '% is at or near the current cost of money. With mid-6% interest rates, this is a marginal deal — you may be close to break-even on leverage. Not necessarily a bad investment, but the margin for error is thin. Talk to an agent before moving forward.';
+    else if (capRate < 8) context = 'A cap rate of ' + capRate.toFixed(1) + '% is healthy for this market. You have positive leverage over current lending rates, which means the property is generating real return above your financing cost. Worth a closer look — talk to an agent about what\'s driving the income.';
+    else if (capRate < 12) context = 'A cap rate of ' + capRate.toFixed(1) + '% is strong. This is well above current lending rates, suggesting meaningful positive leverage and solid cash-on-cash return potential. Worth understanding what\'s driving the income — could be a stabilized asset with real upside, or a value-add play with some vacancy or deferred maintenance baked in. Either way, this is worth a serious look.';
+    else context = 'A cap rate above 12% is unusually high. This may indicate significant risk, high vacancy, deferred maintenance, or a distressed asset — but it could also be a compelling value-add opportunity. Dig into the income and expense details carefully, and talk to a broker before drawing conclusions.';
     ctxEl.textContent = context;
   } else {
     capEl.textContent = '—';
