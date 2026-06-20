@@ -139,19 +139,11 @@
       height: 92vh; min-height: 640px;
       overflow: hidden;
     }
-    .hero-video {
+    .hero-bg {
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-    /* Fallback for mobile where autoplay is blocked */
-    .hero-video-fallback {
-      position: absolute; inset: 0;
-      background-image: url('assets/images/hero_main.jpg');
+      background-image: url('assets/images/hero_banner.jpg');
       background-size: cover;
-      background-position: center 40%;
-      display: none;
+      background-position: center 55%;
     }
     /* Subtle bottom fade only — let the image breathe */
     .hero-fade {
@@ -744,10 +736,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero_main.jpg">
-    <source src="assets/images/hero-video.mp4" type="video/mp4" />
-  </video>
-  <div class="hero-video-fallback"></div>
+  <div class="hero-bg"></div>
 
   <div class="hero-card">
     <!-- SEO: H1 contains primary keyword "commercial real estate Corvallis Oregon" naturally -->
