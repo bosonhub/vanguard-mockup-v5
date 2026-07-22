@@ -147,29 +147,58 @@
 
     <div class="contact-form">
       <h3>Send Us a Message</h3>
-      <div class="form-row">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="[ CONTENT NEEDED ]" /></div>
-        <div class="form-group"><label>Last Name</label><input type="text" placeholder="[ CONTENT NEEDED ]" /></div>
+      <div id="contact-success" style="display:none;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:2px;padding:16px 20px;margin-bottom:20px;color:#2e7d32;font-size:14px;font-weight:500;">
+        &#10003; Message sent! We'll be in touch within 1 business day.
       </div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
-      <div class="form-group"><label>Phone</label><input type="tel" placeholder="541-000-0000" /></div>
-      <div class="form-group">
-        <label>I'm interested in</label>
-        <select>
-          <option>Buying a home</option>
-          <option>Selling a home</option>
-          <option>Commercial — Office Space</option>
-          <option>Commercial — Industrial</option>
-          <option>Commercial — Retail</option>
-          <option>Commercial — Multi-Family</option>
-          <option>Home Valuation</option>
-          <option>General Question</option>
-        </select>
+      <div id="contact-error" style="display:none;background:#fdecea;border:1px solid #ef9a9a;border-radius:2px;padding:16px 20px;margin-bottom:20px;color:#c62828;font-size:14px;font-weight:500;">
+        Something went wrong. Please try again or call us at <a href="tel:5419799929" style="color:#c62828;">541-979-9929</a>.
       </div>
-      <div class="form-group"><label>Message</label><textarea placeholder="Tell us a bit about what you're looking for..."></textarea></div>
-      <button class="form-submit">Send Message</button>
-      <p class="form-note">We'll follow up within 1 business day. No spam, ever.</p>
+      <form id="contact-form">
+        <input type="hidden" name="_subject" value="New Contact — Vanguard Realty Group Website" />
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
+        <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="541-000-0000" /></div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select name="interest">
+            <option>Buying a home</option>
+            <option>Selling a home</option>
+            <option>Commercial — Office Space</option>
+            <option>Commercial — Industrial</option>
+            <option>Commercial — Retail</option>
+            <option>Commercial — Multi-Family</option>
+            <option>Home Valuation</option>
+            <option>General Question</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us a bit about what you're looking for..."></textarea></div>
+        <button type="submit" class="form-submit" id="contact-btn">Send Message</button>
+        <p class="form-note">We'll follow up within 1 business day. No spam, ever.</p>
+      </form>
     </div>
+    <script>
+    (function(){
+      /* SETUP: Replace YOUR_FORM_ID below with the ID from formspree.io (free account, takes 2 min) */
+      var ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+      var form = document.getElementById('contact-form');
+      var btn  = document.getElementById('contact-btn');
+      var ok   = document.getElementById('contact-success');
+      var err  = document.getElementById('contact-error');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        btn.textContent = 'Sending…'; btn.disabled = true;
+        ok.style.display = 'none'; err.style.display = 'none';
+        fetch(ENDPOINT, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
+          .then(function(r){ return r.json().then(function(j){return {ok:r.ok,j:j};}); })
+          .then(function(res){ if(res.ok){ok.style.display='block';form.reset();}else{err.style.display='block';} })
+          .catch(function(){ err.style.display='block'; })
+          .finally(function(){ btn.textContent='Send Message'; btn.disabled=false; });
+      });
+    })();
+    </script>
   </div>
 </div>
 

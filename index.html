@@ -827,29 +827,29 @@
   <div class="valuation-inner">
     <div class="val-form">
       <div class="form-title">What's Your Home Worth?</div>
-      <div class="form-row">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" /></div>
-        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" /></div>
-        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(541) 555-0100" /></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group form-full"><label>Property Address</label><input type="text" placeholder="123 Main St, Corvallis, OR 97330" /></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Property Type</label>
-          <select><option>Single Family Home</option><option>Condo / Townhome</option><option>Multi-Family</option><option>Commercial</option><option>Land</option></select>
+      <div id="val-success" style="display:none;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:2px;padding:14px 18px;margin-bottom:16px;color:#2e7d32;font-size:13px;font-weight:500;">&#10003; Request received! An agent will follow up within 1 business day.</div>
+      <div id="val-error" style="display:none;background:#fdecea;border:1px solid #ef9a9a;border-radius:2px;padding:14px 18px;margin-bottom:16px;color:#c62828;font-size:13px;font-weight:500;">Something went wrong. Please call us at <a href="tel:5419799929" style="color:#c62828;">541-979-9929</a>.</div>
+      <form id="val-form">
+        <input type="hidden" name="_subject" value="Home Valuation Request — Vanguard Realty Group" />
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required /></div>
         </div>
-        <div class="form-group">
-          <label>Timeline</label>
-          <select><option>Just curious</option><option>Within 6 months</option><option>Within 3 months</option><option>Ready now</option></select>
+        <div class="form-row">
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required /></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(541) 555-0100" /></div>
         </div>
-      </div>
-      <button class="form-submit">Get My Free Estimate</button>
-      <p class="form-note">No obligation. An agent will follow up within 1 business day.</p>
+        <div class="form-row">
+          <div class="form-group form-full"><label>Property Address</label><input type="text" name="address" placeholder="123 Main St, Corvallis, OR 97330" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Property Type</label><select name="property_type"><option>Single Family Home</option><option>Condo / Townhome</option><option>Multi-Family</option><option>Commercial</option><option>Land</option></select></div>
+          <div class="form-group"><label>Timeline</label><select name="timeline"><option>Just curious</option><option>Within 6 months</option><option>Within 3 months</option><option>Ready now</option></select></div>
+        </div>
+        <button type="submit" class="form-submit" id="val-btn">Get My Free Estimate</button>
+        <p class="form-note">No obligation. An agent will follow up within 1 business day.</p>
+      </form>
+      <script>(function(){var E='https://formspree.io/f/YOUR_FORM_ID',f=document.getElementById('val-form'),b=document.getElementById('val-btn'),ok=document.getElementById('val-success'),er=document.getElementById('val-error');f.addEventListener('submit',function(e){e.preventDefault();b.textContent='Sending…';b.disabled=true;ok.style.display='none';er.style.display='none';fetch(E,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j};});}).then(function(res){if(res.ok){ok.style.display='block';f.reset();}else{er.style.display='block';}}).catch(function(){er.style.display='block';}).finally(function(){b.textContent='Get My Free Estimate';b.disabled=false;});});})();</script>
     </div>
     <div class="val-text">
       <!-- SEO: H2 targets "home valuation Corvallis Oregon" -->
