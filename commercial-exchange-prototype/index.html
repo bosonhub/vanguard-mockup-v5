@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Commercial Exchange Prototype | Vanguard Realty Group</title>
+  <meta name="description" content="A standalone prototype of a future multi-source commercial property exchange for Vanguard Realty Group.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="assets/prototype.css">
+</head>
+<body>
+  <div class="prototype-ribbon">Concept Prototype Only · No live third-party marketplace data is displayed</div>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Return to Vanguard Realty Group homepage">
+      <img src="../assets/logo.png" alt="Vanguard Realty Group">
+      <span class="brand-text">Commercial<br>Exchange Prototype</span>
+    </a>
+    <nav class="header-actions" aria-label="Prototype actions">
+      <a class="back-link" href="../commercial/">← Current commercial page</a>
+      <a href="mailto:info@vanguardproperties.net?subject=Commercial%20Property%20Inquiry">541-753-4392</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="prototype-title">
+    <div class="hero-content">
+      <span class="eyebrow">Future Concept · Not Part of the Live Site</span>
+      <h1 id="prototype-title">Mid-Willamette Commercial Exchange</h1>
+      <p>A working concept for a Vanguard-led commercial search experience—bringing together authorized local inventory, featured Vanguard opportunities, and direct buyer or tenant inquiries in one place.</p>
+    </div>
+  </section>
+
+  <main class="workspace">
+    <aside class="notice" aria-label="Prototype data notice">
+      <span class="notice-icon">◇</span>
+      <div><strong>Prototype source boundary:</strong> The Vanguard source uses the project’s existing local listing file; the partner records are illustrative only. This page does not scrape, frame, or republish live Crexi, LoopNet, or other third-party marketplace inventory. Each future source must be activated only with written display permission or an authorized IDX/API feed.</div>
+    </aside>
+
+    <section aria-labelledby="search-title">
+      <form class="search-shell" id="search-form">
+        <div class="search-primary">
+          <div class="field">
+            <label for="keyword-search">Search opportunities</label>
+            <input id="keyword-search" type="search" placeholder="City, address, property type, keyword">
+          </div>
+          <div class="field">
+            <label for="city-filter">Market</label>
+            <select id="city-filter">
+              <option>All Markets</option>
+              <option>Corvallis</option>
+              <option>Albany</option>
+              <option>Roseburg</option>
+              <option>Sutherlin</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="deal-filter">Opportunity</label>
+            <select id="deal-filter">
+              <option>All Opportunities</option>
+              <option>For Sale</option>
+              <option>For Lease</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="property-filter">Property type</label>
+            <select id="property-filter">
+              <option>All Types</option>
+              <option>Office</option>
+              <option>Retail</option>
+              <option>Industrial</option>
+              <option>Land</option>
+            </select>
+          </div>
+          <button class="search-button" type="submit">Update Search</button>
+        </div>
+        <div class="search-secondary" aria-label="Quick filters">
+          <span class="filter-label">Quick filters</span>
+          <button class="filter-pill active" data-type-filter="All" type="button"><span></span>All</button>
+          <button class="filter-pill" data-type-filter="For Sale" type="button"><span></span>For Sale</button>
+          <button class="filter-pill" data-type-filter="For Lease" type="button"><span></span>For Lease</button>
+          <button class="filter-pill active" data-source-filter="all" type="button"><span></span>All sources</button>
+          <button class="filter-pill" data-source-filter="vanguard" type="button"><span></span>Vanguard inventory</button>
+          <button class="filter-pill" data-source-filter="demo" type="button"><span></span>Partner-feed concept</button>
+          <button id="reset-filters" class="reset" type="button">Reset all</button>
+        </div>
+      </form>
+
+      <div class="stat-bar">
+        <div id="results-count" class="results-summary"><strong>Loading</strong> opportunities</div>
+        <div class="view-switch" aria-label="Prototype views">
+          <button class="active" type="button" aria-pressed="true">List + Map</button>
+          <button type="button" onclick="document.querySelector('#exchange-map').scrollIntoView({behavior:'smooth', block:'center'})">Focus Map</button>
+        </div>
+      </div>
+
+      <div class="results-layout" aria-label="Commercial opportunity results">
+        <div id="results-list" class="results-list" aria-live="polite"></div>
+        <div class="map-panel">
+          <div id="exchange-map" aria-label="Interactive map of prototype commercial opportunities"></div>
+          <div class="map-legend"><div class="legend-row"><span class="legend-dot vanguard"></span>Featured / Vanguard source</div><div class="legend-row"><span class="legend-dot partner"></span>Illustrative partner-feed concept</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="sources-title">
+      <div class="section-head">
+        <h2 id="sources-title">A source model built to grow responsibly.</h2>
+        <p>Each source can have its own permissions, refresh interval, broker attribution, and featured-placement rules—without changing the search experience for visitors.</p>
+      </div>
+      <div class="source-grid">
+        <article class="source-card">
+          <span class="source-status">Configured for prototype</span>
+          <h3>Vanguard inventory</h3>
+          <p>Brian’s existing listing records are treated as the first source. They can be featured, rotated by sale or lease, and shown prominently across the exchange.</p>
+          <p class="small">Source adapter: local project dataset · Future replacement: authorized direct feed or Crexi FUSE</p>
+        </article>
+        <article class="source-card">
+          <span class="source-status pending">Partner agreement required</span>
+          <h3>Local broker partners</h3>
+          <p>Participating firms could submit a spreadsheet, API feed, or broker-managed listing record under a written agreement that permits public display.</p>
+          <p class="small">Source adapter: illustrative records only · Activation requires source agreement</p>
+        </article>
+        <article class="source-card">
+          <span class="source-status pending">Eligibility to confirm</span>
+          <h3>MLS / licensed data</h3>
+          <p>An approved commercial IDX or licensed regional feed could expand coverage where the data supplier permits a public map search and lead-routing model.</p>
+          <p class="small">Source adapter: not connected · Activation requires vendor terms and credentials</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lead-section" id="property-inquiry" aria-labelledby="lead-title">
+      <div class="lead-copy">
+        <span class="eyebrow">Lead-Generation Layer</span>
+        <h2 id="lead-title">Not seeing the right property?</h2>
+        <p>Tell Vanguard what you are looking for. This is the part that keeps the brokerage in the conversation—even when the right property is not currently part of an authorized public feed.</p>
+      </div>
+      <form class="lead-form" id="inquiry-form">
+        <div class="form-grid">
+          <div class="form-field"><label for="lead-name">Name</label><input id="lead-name" type="text" required placeholder="Your name"></div>
+          <div class="form-field"><label for="lead-email">Email</label><input id="lead-email" type="email" required placeholder="you@example.com"></div>
+          <div class="form-field"><label for="lead-type">Need</label><select id="lead-type"><option>Purchase a property</option><option>Lease a property</option><option>Sell a property</option><option>Lease out a property</option></select></div>
+          <div class="form-field"><label for="lead-market">Preferred market</label><select id="lead-market"><option>Corvallis</option><option>Albany</option><option>Lebanon</option><option>Mid-Willamette Valley</option><option>Other Oregon market</option></select></div>
+          <div class="form-field full"><label for="property-interest">Property / requirements</label><textarea id="property-interest" placeholder="Property type, square footage, budget, timing, or a specific opportunity"></textarea></div>
+        </div>
+        <div class="submit-row"><button type="submit">Send inquiry to Vanguard</button><span id="form-message" class="form-message" aria-live="polite"></span></div>
+      </form>
+    </section>
+  </main>
+
+  <div id="detail-modal" class="detail-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Property detail">
+    <div id="modal-content" class="modal-card"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/prototype.js"></script>
+</body>
+</html>
